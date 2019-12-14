@@ -5,12 +5,19 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class="row">
-				<%= attachment_image_tag @user, :image, size:'100x100', fallback: "no_user_image.jpg" %>
+				<%= attachment_image_tag @user, :image, size:'100x100', fallback: "no_user_image.jpg", style:"border-radius: 50%" %>
 			</div>
 			<div class="row">
 				<%= @user.name %>
+			</div>
+			<div class="row">
 				<%= @user.email %>
+			</div>
+			<div class="row">
 				<%= @user.phone_number %>
+			</div>
+			<div class="row">
+				<%= link_to "編集", edit_user_path(@user), class:"btn btn-light" %>
 			</div>
 			<div class="row">
 				<h2>好きタグ</h2>
