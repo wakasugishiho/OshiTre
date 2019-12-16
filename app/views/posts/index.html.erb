@@ -1,0 +1,18 @@
+<%= render partial: "homes/header" %>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-9">
+			<div class="row">
+				<% @posts.each do |post| %>
+				<div class="col-md-4">
+					<%= link_to attachment_image_tag(post, :image, size:'200x200', fallback: "no_user_image.jpg"), post_path(post) %>
+					<%= post.title %>
+					<%= post.body %>
+				</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+</div>

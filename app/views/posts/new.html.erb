@@ -1,0 +1,21 @@
+<%= render partial: "homes/header" %>
+
+<div class="container">
+	<div class="row">
+		<h3>記事作成</h3>
+	</div>
+	<div class="row">
+		<%= form_for @post do |f| %>
+			<%= f.label "タイトル" %>
+			<%= f.text_field :title %>
+			<%= f.label "画像" %>
+			<%= f.attachment_field :image %>
+			<%= f.label "本文" %>
+			<%= f.text_area :body %>
+			<%= f.submit "記事を投稿する" %>
+		<% end %>
+	</div>
+	<div class="row">
+		<h3>タグを付ける</h3>
+	</div>
+</div>
