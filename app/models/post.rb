@@ -21,6 +21,7 @@ class Post < ApplicationRecord
 		hashtags.uniq.map do |hashtag|
 			tag = Hashtag.find_or_create_by(hashname: hashtag.downcase.delete('#'))
 			# post.hashtags << tag
+			PostHashtag.create!(post_id: self.id, hashtag_id: tag.id)
 		end
 	end
 end

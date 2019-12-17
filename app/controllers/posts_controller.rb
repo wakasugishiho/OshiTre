@@ -32,11 +32,11 @@ class PostsController < ApplicationController
   end
 
   def hashtag
+
     @new_post = Post.new
     @user = current_user
     @hashtag = Hashtag.find_by(hashname: params[:name])
-    @post_hashtags = PostHashtag.where(hashtag_id: @hashtag.id)
-    @posts = @post_hashtags.posts
+    @posts = @hashtag.posts
   end
 
 
