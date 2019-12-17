@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'posts/show'
   get 'posts/edit'
   get 'posts/index'
+  get 'posts/hashtag/:name', to: "posts#hashtag"
 	devise_for :users, :controllers => {
    		:registrations => 'users/registrations',
    		:sessions => 'users/sessions',
