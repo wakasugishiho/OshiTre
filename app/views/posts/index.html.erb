@@ -7,11 +7,11 @@
 			<div class="row">
 				<% @posts.each do |post| %>
 				<div class="col-md-4">
-					<div class="card img-thumbnail mt-3" style="height:500px">
+					<div class="card img-thumbnail mt-3">
 						<%= link_to attachment_image_tag(post, :image, size:'244x244', fallback: "no_user_image.jpg"), post_path(post), class:"card-img-top" %>
 						<div class="card-body px-2 py-3">
 							<h5 class="card-title"><%= post.title %></h5>
-							<p class="card-text"><%= render_with_hashtags(post.body) %></p>
+							<p class="card-text text-truncate"><%= render_with_hashtags(post.body) %></p>
 						</div>
 					</div>
 				</div>
