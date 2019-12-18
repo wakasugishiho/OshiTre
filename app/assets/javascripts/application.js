@@ -14,6 +14,9 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+//= require jquery.validationEngine-en
+//= require jquery.validationEngine
+//= require jquery.validationEngine-ja.js
 //= require bootstrap-sprockets
 //= require_tree .
 

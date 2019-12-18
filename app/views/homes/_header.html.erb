@@ -3,7 +3,7 @@
 		<h2><%= link_to "推しトレ！", posts_path %></h2>
 		<ul class="navbar-nav">
 			<li class="nav-item">
-				<a class="js-modal-open" href="">記事作成</a>
+				<a href="" data-toggle="modal" data-target="#myModal">記事作成</a>
 			</li>
 			<li class="navbar-nav">
 				<%= link_to "マイページ", user_path(current_user) %>
@@ -14,35 +14,40 @@
 		</ul>
 	</div>
 </nav>
-<div class="modal js-modal">
-	<div class="modal__bg js-modal-close"></div>
-	<div class="modal__content_2">
-		<div class="row">
-			<h3>記事作成</h3>
-		</div>
-		<div class="row">
-			<%= form_for @new_post do |f| %>
-			<ul style="list-style: none">
-				<li>
-					<%= f.label "タイトル" %>
-					<%= f.text_field :title %>
-				</li>
-				<li>
-					<%= f.label "画像" %>
-					<%= f.attachment_field :image %>
-				</li>
-				<li>
-					<%= f.label "本文" %>
-					<%= f.text_area :body %>
-				</li>
-				<li>
-					<%= f.submit "記事を投稿する" %>
-				</li>
-			</ul>
-			<% end %>
-		</div>
-		<div class="modal__close">
-			<a class="js-modal-close btn btn-light" href="">閉じる</a>
-		</div>
-	</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  	<div class="modal-dialog" role="document">
+    	<div class="modal-content">
+      		<div class="modal-header">
+      			<%= attachment_image_tag @user, :image, size:'50x50', fallback: "no_user_image.jpg", style:"border-radius: 50%", class: "ml-3"%>
+        		<h5 class="modal-title mt-3 ml-2" id="exampleModalLabel">新規作成</h5>
+        		<button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+      		</div>
+      		<div class="modal-body">
+        		<%= form_for @new_post, html: { id: "validate_id"} do |f| %>
+				<table class="table table-borderless">
+					<tbody>
+						<tr>
+							<td><%= f.label "タイトル" %></td>
+							<td><%= f.text_field :title, class: "validate[required] form-control" %></td>
+						</tr>
+						<tr>
+							<td><%= f.label "画像" %></td>
+							<td><%= f.attachment_field :image %></td>
+						</tr>
+						<tr>
+							<td><%= f.label "本文" %></td>
+							<td><%= f.text_area :body, class: "validate[required] form-control", style: "height:200px" %></td>
+						</tr>
+					</tbody>
+				</table>
+      		</div>
+      		<div class="modal-footer">
+        		<button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        		<%= f.submit "投稿", class: "btn btn-primary" %>
+        		<% end %>
+      		</div>
+    	</div>
+  	</div>
 </div>

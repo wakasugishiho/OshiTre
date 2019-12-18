@@ -10,6 +10,11 @@
   </head>
 
   <body class='<%= "#{controller.controller_name}" %>'>
+    <script type="text/javascript">
+      jQuery(document).ready(function(){
+        jQuery("#validate_id").validationEngine();
+      });
+    </script>
     <%= yield %>
   </body>
 </html>
