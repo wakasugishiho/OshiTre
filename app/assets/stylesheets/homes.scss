@@ -2,3 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.homes {
+
+	.background {
+		height: 100vh;
+		width: 100vw;
+		background: image-url('bg.png');
+		background-size: cover;
+  		background-position: center;
+	}
+
+	.background-star {
+		background: image-url('white_star.png');
+  		background-position: center;
+	}
+}

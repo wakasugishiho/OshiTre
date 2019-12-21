@@ -7,7 +7,7 @@
 			<div class="row">
 				<% @posts.each do |post| %>
 				<div class="col-md-4">
-					<div class="card img-thumbnail mt-3">
+					<div class="card img-thumbnail mt-3" style="border: solid #ffc0cb 2px; border-radius: 10px;">
 						<%= link_to attachment_image_tag(post, :image, size:'244x244', fallback: "no_user_image.jpg"), post_path(post), class:"card-img-top" %>
 						<div class="card-body px-2 py-3">
 							<h5 class="card-title"><%= post.title %></h5>

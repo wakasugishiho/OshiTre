@@ -3,6 +3,7 @@ class Post < ApplicationRecord
 	belongs_to :user
 	has_many :post_hashtags, dependent: :destroy
 	has_many :hashtags, through: :post_hashtags
+	has_many :rooms, dependent: :destroy
 
 	after_create do
 		post = Post.find_by(id: self.id)

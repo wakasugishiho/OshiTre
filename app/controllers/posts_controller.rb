@@ -13,6 +13,7 @@ class PostsController < ApplicationController
     @user = current_user
     @new_post = Post.new
   	@post = Post.find(params[:id])
+    @room = Room.new
   end
 
   def edit

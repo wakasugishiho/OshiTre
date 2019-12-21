@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     @new_post = Post.new
   	@user = User.find(params[:id])
-    @posts = Post.where(user_id: @user.id)
+    @posts = @user.posts
   end
 
   def edit

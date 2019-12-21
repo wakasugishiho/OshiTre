@@ -25,6 +25,12 @@
 					<div class="row pr-3 mt-2">
 						<%= render_with_hashtags(@post.body) %>
 					</div>
+					<div class="row">
+						<%= form_for @room do |f| %>
+						<%= f.hidden_field :post_id, :value => @post.id %>
+						<%= f.submit "チャットを始める" %>
+						<% end %>
+					</div>
 				</div>
 			</div>
 		</div>

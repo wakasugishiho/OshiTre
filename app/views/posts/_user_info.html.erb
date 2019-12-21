@@ -1,15 +1,16 @@
 <div class="col-md-3">
-	<div class="row mt-3 mr-3" style="border: solid silver 1px; border-radius: 10px;">
+	<div class="row mt-3 mr-3" style="border: solid #ffc0cb 2px; border-radius: 10px;">
 		<div class="col-md-5">
-			<%= attachment_image_tag @user, :image, size:'100x100', fallback: "no_user_image.jpg", style:"border-radius: 50%", class:"mx-auto mt-3 mb-3" %>
+			<%= attachment_image_tag @user, :image, size:'80x80', fallback: "no_user_image.jpg", style:"border-radius: 50%", class:"mx-auto mt-3 mb-3" %>
 		</div>
 		<div class="col-md-7">
-			<ul class="mt-3 ml-2" style="list-style: none">
-				<li><%= @user.name %></li>
-				<li><%= @user.email %></li>
-				<li><%= @user.phone_number %></li>
-				<li><%= link_to "編集", edit_user_path(@user), class:"btn btn-light" %></li>
-			</ul>
+			<div class="row mt-3">
+				<ul style="list-style: none">
+					<li><%= @user.name %><%= link_to edit_user_path(@user) do %><i class="fas fa-cog text-dark"></i><% end %></li>
+					<li><%= @user.email %></li>
+					<li><%= @user.phone_number %></li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </div>

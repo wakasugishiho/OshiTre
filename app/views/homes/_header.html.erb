@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #FFEEFF;">
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffc0cb;">
 	<div class="container">
 		<%= link_to image_tag("title_rogo.png", size:"200x100"), posts_path %>
 		<ul class="navbar-nav">
@@ -17,7 +17,7 @@
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   	<div class="modal-dialog" role="document">
     	<div class="modal-content">
-      		<div class="modal-header" style="background-color: #FFEEFF;">
+      		<div class="modal-header" style="background-color: #ffc0cb;">
       			<%= attachment_image_tag @user, :image, size:'50x50', fallback: "no_user_image.jpg", style:"border-radius: 50%", class: "ml-3"%>
         		<h5 class="modal-title mt-3 ml-2" id="exampleModalLabel">新規作成</h5>
         		<button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
@@ -34,7 +34,7 @@
 						</tr>
 						<tr>
 							<td><%= f.label "画像" %></td>
-							<td><%= f.attachment_field :image %></td>
+							<td><%= f.attachment_field :image, class: "validate[required]" %></td>
 						</tr>
 						<tr>
 							<td><%= f.label "本文" %></td>
@@ -43,7 +43,7 @@
 					</tbody>
 				</table>
       		</div>
-      		<div class="modal-footer" style="background-color: #FFEEFF;">
+      		<div class="modal-footer" style="background-color: #ffc0cb;">
         		<button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
         		<%= f.submit "投稿", class: "btn btn-primary" %>
         		<% end %>
