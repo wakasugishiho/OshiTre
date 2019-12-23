@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   def show
     @new_post = Post.new
   	@user = User.find(params[:id])
-    @posts = @user.posts
+    @posts = @user.posts.order(id: "DESC").page(params[:page]).per(10)
   end
 
   def edit

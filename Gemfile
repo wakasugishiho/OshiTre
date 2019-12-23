@@ -71,3 +71,6 @@ gem "refile-mini_magick"
 
 gem 'jQuery-Validation-Engine-rails'
 gem 'font-awesome-sass', '~> 5.4.1'
+
+gem 'kaminari','~> 1.1.1'
+gem 'bootstrap4-kaminari-views'

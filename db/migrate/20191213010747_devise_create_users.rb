@@ -34,7 +34,8 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
 
       t.string :name
       t.string :phone_number
-      t.boolean :flag
+      t.boolean :flag, default: true
+      t.string :image_id
       t.timestamps null: false
     end
 

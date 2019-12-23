@@ -1,3 +1,10 @@
-<div class="message">
-	<p><%= "#{message.sent_user.name}: #{message.content}" %></p>
+<div class="message row mt-3 mb-3">
+	<div class="col-md-2">
+		<%= attachment_image_tag message.sent_user, :image, size:'50x50', fallback: "no_user_image.jpg", style:"border-radius:50%" %>
+	</div>
+	<div class="col-md-10">
+		<div class="pt-3 pb-3 pl-2 pr-2" style="border: solid #ffc0cb 2px; border-radius: 10px; background-color: white; display: inline-block;">
+				<%= message.content %>
+		</div>
+	</div>
 </div>

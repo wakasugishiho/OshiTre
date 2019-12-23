@@ -21,9 +21,22 @@ class PostsController < ApplicationController
   	@post = Post.find(params[:id])
   end
 
+  def update
+    @post = Post.find(params[:id])
+    if params[:private]
+      @post.update(flag:false)
+      redirect_to user_path(current_user)
+    else
+      if @post.update(post_params)
+        flash[:update] = "記事を編集しました"
+        redirect_to user_path(current_user)
+      end
+    end
+  end
+
   def index
     @new_post = Post.new
-  	@posts = Post.all.order(id: "DESC")
+  	@posts = Post.all.order(id: "DESC").page(params[:page]).per(12)
     @user = current_user
   end
 
@@ -34,11 +47,10 @@ class PostsController < ApplicationController
   end
 
   def hashtag
-
     @new_post = Post.new
     @user = current_user
     @hashtag = Hashtag.find_by(hashname: params[:name])
-    @posts = @hashtag.posts
+    @posts = @hashtag.posts.page(params[:page]).per(12)
   end
 
 

@@ -13,7 +13,15 @@
 	}
 
 	.background-star {
-		background: image-url('white_star.png');
+		width: 150px;
+		height: 80px;
+		background: image-url('bg_star.png');
   		background-position: center;
+  		text-align: center;
+  		padding-top: 30px;
+	}
+
+	.background-star:hover {
+		background-image: url('bg_color_star.png')
 	}
 }

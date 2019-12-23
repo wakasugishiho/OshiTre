@@ -31,3 +31,9 @@ $(function(){
         return false;
     });
 });
+
+$(document).ready(function(){
+	$("div[data-href]").click(function(){
+		window.location = $(this).data("href");
+	});
+});

@@ -4,9 +4,9 @@
 	</div>
 	<div class="row">
 		<div class="col-md-9">
-			<div class="row">
+			<div class="row mr-3 mt-3" style="border: solid #ffc0cb 2px; border-radius: 10px;">
 				<div class="col-md-5">
-					<%= attachment_image_tag @post, :image, size:'300x300', fallback: "no_user_image.jpg", class:"img-thumbnail" %>
+					<%= attachment_image_tag @post, :image, size:'300x300', fallback: "no_user_image.jpg"%>
 				</div>
 				<div class="col-md-7">
 					<div class="row mt-5"></div>
@@ -15,8 +15,8 @@
 						<%= @post.user.name %>
 					</div>
 					<div class="row">
-						<div class="col pl-0">
-							<h2><%= @post.title %></h2>
+						<div class="col pl-0 mt-3">
+							<h4><%= @post.title %></h4>
 						</div>
 						<div class="col-md-5 pl-5 pt-3">
 							<%= @post.created_at.strftime("%Y.%m.%d %H:%M") %>
@@ -25,12 +25,14 @@
 					<div class="row pr-3 mt-2">
 						<%= render_with_hashtags(@post.body) %>
 					</div>
-					<div class="row">
-						<%= form_for @room do |f| %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 mx-auto mt-5">
+					<%= form_for @room do |f| %>
 						<%= f.hidden_field :post_id, :value => @post.id %>
-						<%= f.submit "チャットを始める" %>
-						<% end %>
-					</div>
+						<%= f.submit "チャットを始める", class:"btn btn-lg btn-pink" %>
+					<% end %>
 				</div>
 			</div>
 		</div>

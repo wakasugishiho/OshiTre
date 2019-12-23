@@ -7,7 +7,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :image_id
       t.text :body
-      t.boolean :flag
+      t.boolean :flag, default: true
     end
   end
 end

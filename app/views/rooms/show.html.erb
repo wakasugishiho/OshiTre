@@ -1,9 +1,37 @@
-<h1>Chat Room</h1>
-<form>
-  <label>Say something:</label><br>
-  <input type="text" data-behavior="room_speaker">
-</form>
-
-<div id="messages" data-room_id="<%= @room.id %>">
-	<%= render @messages %>
+<%= render partial: "homes/header" %>
+<div class="container">
+	<div class="row mt-5">
+	</div>
+	<div class="row">
+		<div class="col-md-3" style="border: solid #ffc0cb 2px; border-radius: 10px;">
+			<div class="row">
+				<%= attachment_image_tag @post, :image, size:'200x200', fallback: "no_user_image.jpg", class:"mx-auto" %>
+			</div>
+			<div class="row">
+				<div class="col">
+					<h5><%= @post.title %></h5>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<%= render_with_hashtags(@post.body) %>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-md-10 mx-auto" style="height: 500px; overflow:auto; background-color: #fff0f5;" id="messages" data-room_id="<%= @room.id %>">
+					<%= render @messages %>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-10 mx-auto" style="background-color: #fff0f5;">
+					<form>
+  						<input class="form-control" type="text" data-behavior="room_speaker">
+					</form>
+				</div>
+			</div>
+		</div>
+		<%= render partial: "posts/user_info" %>
+	</div>
 </div>
