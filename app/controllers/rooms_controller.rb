@@ -18,8 +18,7 @@ class RoomsController < ApplicationController
   def index
     @new_post = Post.new
     @user = current_user
-    @rooms = Room.all.page(params[:page]).per(10)
-    # @rooms = Room.joins(:messages).where(messages: {sent_user: current_user})
+    @rooms = @user.rooms.page(params[:page]).per(10)
   end
 
 

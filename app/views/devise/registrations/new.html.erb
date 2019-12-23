@@ -1,48 +1,55 @@
-<div class="container">
-  <div class="row">
-    <h2>新規登録</h2>
-  </div>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone_number %><br>
-    <%= f.text_field :phone_number, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.attachment_field :image %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+<div class="background">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto bg_2" style="background-color: white; margin-top: 200px; border-radius: 10px;">
+                <%= link_to root_path do %>
+                    <i class="far fa-window-close text-dark fa-2x" style="float:right;"></i>
+                <% end %>
+                <div class="row mt-3">
+                    <div class="mx-auto">
+                        <h2>新規登録</h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-10 mx-auto">
+                    <table class="table">
+                        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                        <%= render "devise/shared/error_messages", resource: resource %>
+                        <tbody>
+                            <tr>
+                                <td><%= f.label "ユーザー名" %></td>
+                                <td><%= f.text_field :name, autofocus: true, class:"form-control" %></td>
+                            </tr>
+                            <tr>
+                                <td><%= f.label "メールアドレス" %></td>
+                                <td><%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %></td>
+                            </tr>
+                            <tr>
+                                <td><%= f.label "電話番号" %></td>
+                                <td><%= f.text_field :phone_number, autofocus: true, class:"form-control" %></td>
+                            </tr>
+                            <tr>
+                                <td><%= f.label "パスワード" %>
+                                <% if @minimum_password_length %>
+                                  <em>(<%= @minimum_password_length %>文字以上)</em>
+                                <% end %></td>
+                                <td><%= f.password_field :password, autocomplete: "new-password", class:"form-control" %></td>
+                            </tr>
+                            <tr>
+                                <td><%= f.label "確認用パスワード" %></td>
+                                <td><%= f.password_field :password_confirmation, autocomplete: "new-password", class:"form-control" %></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="mx-auto">
+                        <%= f.submit "登録する", class:"btn btn-light" %>
+                    </div>
+                    <% end %>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

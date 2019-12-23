@@ -1,31 +1,47 @@
 <%= render partial: "homes/header" %>
 <div class="container">
-	<div class="row">
-		<h1>ユーザー情報編集</h1>
-	</div>
-	<%= form_for @user do |f| %>
-  	<div class="field">
-    	<%= f.label :name %><br>
-    	<%= f.text_field :name, autofocus: true %>
- 	 </div>
-
-  	<div class="field">
-    	<%= f.label :email %><br />
-    	<%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  	</div>
-
-  	<div class="field">
-    	<%= f.label :phone_number %><br>
-    	<%= f.text_field :phone_number, autofocus: true %>
-  	</div>
-
-  	<div class="field">
-    	<%= f.label :image %><br>
-    	<%= f.attachment_field :image %>
-  	</div>
-
-  	<div class="actions">
-    	<%= f.submit "編集" %>
-  	</div>
-	<% end %>
+  <div class="row">
+    <div class="col-md-6 mx-auto mt-5" style="border: solid #ffc0cb 2px; border-radius: 10px; background-color: white;">
+      <div class="row">
+        <div class="mx-auto mt-3">
+          <h3>ユーザー情報編集</h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="mx-auto">
+          <%= form_for @user do |f| %>
+          <table class="table">
+            <tr>
+              <td><%= f.label "ユーザー名" %></td>
+              <td><%= f.text_field :name, class:"form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label "メールアドレス" %></td>
+              <td><%= f.text_field :email, class:"form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label "電話番号" %></td>
+              <td><%= f.text_field :phone_number, class:"form-control" %></td>
+            </tr>
+            <tr>
+              <td><%= f.label "プロフィール画像" %></td>
+              <td><%= f.attachment_field :image %></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col-md-3">
+          <%= f.submit "編集内容を保存", class:"btn btn-pink mb-3" %>
+        </div>
+        <div class="col-md-3">
+          <%= f.submit "退会する", name:'leave', class:"btn btn-light", data: { confirm: "退会するとデータは復元できません。よろしいですか？" } %>
+        </div>
+        <div class="col"></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
+<%= render partial: "homes/footer" %>

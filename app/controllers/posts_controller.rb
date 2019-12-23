@@ -26,17 +26,20 @@ class PostsController < ApplicationController
     if params[:private]
       @post.update(flag:false)
       redirect_to user_path(current_user)
+    elsif params[:open]
+      @post.update(flag:true)
+      redirect_to user_path(current_user)
     else
       if @post.update(post_params)
-        flash[:update] = "記事を編集しました"
-        redirect_to user_path(current_user)
+         flash[:update] = "記事を編集しました"
+         redirect_to user_path(current_user)
       end
     end
   end
 
   def index
     @new_post = Post.new
-  	@posts = Post.all.order(id: "DESC").page(params[:page]).per(12)
+  	@posts = Post.where(flag: true).order(id: "DESC").page(params[:page]).per(12)
     @user = current_user
   end
 

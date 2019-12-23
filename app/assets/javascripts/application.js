@@ -32,7 +32,7 @@ $(function(){
     });
 });
 
-$(document).ready(function(){
+$(function(){
 	$("div[data-href]").click(function(){
 		window.location = $(this).data("href");
 	});

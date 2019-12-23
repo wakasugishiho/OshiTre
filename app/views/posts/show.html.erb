@@ -4,10 +4,19 @@
 	</div>
 	<div class="row">
 		<div class="col-md-9">
-			<div class="row mr-3 mt-3" style="border: solid #ffc0cb 2px; border-radius: 10px;">
+			<div class="row mr-3 mt-3" style="border: solid #ffc0cb 2px; border-radius: 10px; background-color: white;">
+				<% if @post.flag == true %>
 				<div class="col-md-5">
-					<%= attachment_image_tag @post, :image, size:'300x300', fallback: "no_user_image.jpg"%>
+					<%= attachment_image_tag @post, :image, size:'300x300', fallback: "no_user_image.jpg", class:"mt-2 mb-2"%>
 				</div>
+				<% else %>
+				<div class="col-md-5" style="position: relative;">
+					<%= attachment_image_tag @post, :image, size:'300x300', fallback: "no_user_image.jpg", class:"mt-2 mb-2"%>
+					<div style="position: absolute; top: 35%; background-color: pink; height: 50px; width: 300px; opacity: 0.9; text-align: center;">
+						<h2 class="pt-1">非公開記事</h2>
+					</div>
+				</div>
+				<% end %>
 				<div class="col-md-7">
 					<div class="row mt-5"></div>
 					<div class="row">
@@ -22,7 +31,7 @@
 							<%= @post.created_at.strftime("%Y.%m.%d %H:%M") %>
 						</div>
 					</div>
-					<div class="row pr-3 mt-2">
+					<div class="row pr-3 pb-5 mt-2">
 						<%= render_with_hashtags(@post.body) %>
 					</div>
 				</div>
@@ -39,3 +48,4 @@
 		<%= render partial: "posts/user_info" %>
 	</div>
 </div>
+<%= render partial: "homes/footer" %>

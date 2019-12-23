@@ -3,7 +3,7 @@
 	<div class="row mt-5">
 	</div>
 	<div class="row">
-		<div class="col-md-3" style="border: solid #ffc0cb 2px; border-radius: 10px;">
+		<div class="col-md-3" style="border: solid #ffc0cb 2px; border-radius: 10px; background-color: white;">
 			<div class="row">
 				<%= attachment_image_tag @post, :image, size:'200x200', fallback: "no_user_image.jpg", class:"mx-auto" %>
 			</div>
@@ -13,7 +13,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col">
+				<div class="col mb-3">
 					<%= render_with_hashtags(@post.body) %>
 				</div>
 			</div>
@@ -27,7 +27,7 @@
 			<div class="row">
 				<div class="col-md-10 mx-auto" style="background-color: #fff0f5;">
 					<form>
-  						<input class="form-control" type="text" data-behavior="room_speaker">
+  						<input class="form-control" type="text" data-behavior="room_speaker" placeholder="メッセージを入力してEnterで送信">
 					</form>
 				</div>
 			</div>
@@ -35,3 +35,4 @@
 		<%= render partial: "posts/user_info" %>
 	</div>
 </div>
+<%= render partial: "homes/footer" %>
