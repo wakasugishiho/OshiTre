@@ -76,3 +76,7 @@ gem 'kaminari','~> 1.1.1'
 gem 'bootstrap4-kaminari-views'
 
 gem 'ransack'
+
+group :production do
+  gem 'mysql2'
+end
