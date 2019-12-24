@@ -4,7 +4,7 @@
 			<div class="col-md-6"></div>
 			<div class="col-md-2">
 				<div class="background-star">
-					<h4><a class="js-modal-open text-dark" href="">推しトレとは</a></h4>
+					<h4><a class="text-dark" data-toggle="modal" data-target="#aboutModal" href="">推しトレとは</a></h4>
 				</div>
 			</div>
 			<div class="col-md-2">
@@ -20,19 +20,21 @@
 		</div>
 	</div>
 </div>
-
-
-<div class="modal js-modal">
-	<div class="modal__bg js-modal-close"></div>
-	<div class="modal__content bg_2" style="border-radius: 10px;">
-		<h3>推しトレとは？</h3>
-		<p>推しをトレードして取れ！というコンセプトのコミュニティサイトです。</p>
-		<p>迷子の推しを見つけたら、投稿者とチャットしてみましょう！</p>
-		<p>チャットは他者からは見えず、取引終了後はトーク内容全て削除することができるので安心！</p>
-		<p>ユーザーレビュー機能で優良ユーザーが一目瞭然！</p>
-		<P>モラルやマナーを守って快適な推し事をお楽しみください！</P>
-		<div class="modal__close">
-			<a class="js-modal-close btn btn-light" href="">閉じる</a>
-		</div>
-	</div>
+<div class="modal fade" id="aboutModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  	<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    	<div class="modal-content bg_2">
+      		<div class="modal-header" style="background-color: #ffc0cb;">
+        		<h5 class="modal-title mt-3 ml-2" id="exampleModalLabel">推しトレとは</h5>
+      		</div>
+      		<div class="modal-body">
+      			<p>オタクの、オタクによる、オタクのためのグッズ交換サイトです！</p>
+				<p>迷子の推しを見つけたら、投稿者とチャットしてみましょう！</p>
+				<p>チャットは他者からは見えず、取引終了後はトーク内容全て削除することができるので安心！</p>
+				<P>推しトレはあなたの快適な推し事を応援しています！</P>
+      		</div>
+      		<div class="modal-footer" style="background-color: #ffc0cb;">
+        		<button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+      		</div>
+    	</div>
+  	</div>
 </div>

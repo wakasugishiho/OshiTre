@@ -74,3 +74,5 @@ gem 'font-awesome-sass', '~> 5.4.1'
 
 gem 'kaminari','~> 1.1.1'
 gem 'bootstrap4-kaminari-views'
+
+gem 'ransack'

@@ -39,7 +39,8 @@ class PostsController < ApplicationController
 
   def index
     @new_post = Post.new
-  	@posts = Post.where(flag: true).order(id: "DESC").page(params[:page]).per(12)
+    @q = Post.ransack(params[:q])
+  	@posts = @q.result(distinct: true).where(flag: true).order(id: "DESC").page(params[:page]).per(12)
     @user = current_user
   end
 
