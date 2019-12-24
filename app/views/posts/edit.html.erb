@@ -1,0 +1,49 @@
+<%= render partial: "homes/header" %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 mx-auto mt-5" style="border: solid #ffc0cb 2px; border-radius: 10px; background-color: white;">
+			<div class="row">
+				<div class="mx-auto mt-3">
+					<h3>記事編集</h3>
+				</div>
+			</div>
+			<div class="row">
+				<div class="mx-auto">
+					<%= form_for @post do |f| %>
+					<table class="table">
+						<tr>
+							<td><%= f.label "タイトル" %></td>
+							<td><%= f.text_field :title, class:"form-control" %></td>
+						</tr>
+						<tr>
+							<td><%= f.label "画像" %></td>
+							<td><%= f.attachment_field :image %></td>
+						</tr>
+						<tr>
+							<td><%= f.label "本文" %></td>
+							<td><%= f.text_area :body, class:"form-control", style:"height:200px;" %></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col"></div>
+				<div class="col-md-3">
+					<%= f.submit "記事を編集する", class:"btn btn-pink mb-3" %>
+				</div>
+				<% if @post.flag == true %>
+				<div class="col-md-3">
+					<%= f.submit "記事を非公開にする", name:'private', class:"btn btn-light" %>
+				</div>
+				<% else %>
+				<div class="col-md-3">
+					<%= f.submit "記事を公開する", name:'open', class:"btn btn-light" %>
+				</div>
+				<% end %>
+				<div class="col"></div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>
+<%= render partial: "homes/footer" %>

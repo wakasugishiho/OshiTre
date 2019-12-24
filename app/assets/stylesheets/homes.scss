@@ -1,0 +1,19 @@
+// Place all the styles related to the Homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.homes {
+
+	.background-star {
+		width: 150px;
+		height: 80px;
+		background: image-url('bg_star.png');
+  		background-position: center;
+  		text-align: center;
+  		padding-top: 30px;
+	}
+
+	.background-star:hover {
+		background-image: url('bg_color_star.png')
+	}
+}

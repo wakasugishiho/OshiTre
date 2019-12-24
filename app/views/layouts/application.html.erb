@@ -9,7 +9,17 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class='<%= "#{controller.controller_name}" %> bg_2'>
+    <script type="text/javascript">
+      jQuery(document).ready(function(){
+        jQuery("#validate_id").validationEngine();
+      });
+    </script>
+    <script type="text/javascript">
+      jQuery(document).ready(function(){
+        jQuery("#validate").validationEngine();
+      });
+    </script>
     <%= yield %>
   </body>
 </html>

@@ -1,0 +1,56 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffc0cb;">
+	<div class="container">
+		<%= link_to image_tag("title_rogo.png", size:"200x100"), posts_path %>
+		<ul class="navbar-nav">
+			<li class="nav-item">
+				<a href="" data-toggle="modal" data-target="#myModal" class="far fa-edit fa-lg mt-5 text-dark"></a>
+			</li>
+			<li class="navbar-nav">
+				<%= link_to user_path(current_user) do %><span class="far fa-user fa-lg ml-4 mt-5 text-dark"></span><% end %>
+			</li>
+			<li class="navbar-nav">
+				<%= link_to rooms_path do %><span class="far fa-comments fa-lg ml-4 mt-5 text-dark"></span><% end %>
+			</li>
+			<li class="navbar-nav">
+				<%= link_to destroy_user_session_path, method: :delete do %><span class="fas fa-sign-out-alt fa-lg ml-4 mt-5 text-dark" ></span><% end %>
+			</li>
+		</ul>
+	</div>
+</nav>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  	<div class="modal-dialog" role="document">
+    	<div class="modal-content bg_2">
+      		<div class="modal-header" style="background-color: #ffc0cb;">
+      			<%= attachment_image_tag @user, :image, size:'50x50', fallback: "no_user_image.jpg", style:"border-radius: 50%", class: "ml-3"%>
+        		<h5 class="modal-title mt-3 ml-2" id="exampleModalLabel">新規作成</h5>
+        		<button type="button" class="close" data-dismiss="modal" aria-label="閉じる">
+          			<span aria-hidden="true">&times;</span>
+        		</button>
+      		</div>
+      		<div class="modal-body">
+        		<%= form_for @new_post, html: { id: "validate_id"} do |f| %>
+				<table class="table table-borderless">
+					<tbody>
+						<tr>
+							<td><%= f.label "タイトル" %></td>
+							<td><%= f.text_field :title, class: "validate[required] form-control" %></td>
+						</tr>
+						<tr>
+							<td><%= f.label "画像" %></td>
+							<td><%= f.attachment_field :image, class: "validate[required]" %></td>
+						</tr>
+						<tr>
+							<td><%= f.label "本文" %></td>
+							<td><%= f.text_area :body, class: "validate[required] form-control", style: "height:200px" %></td>
+						</tr>
+					</tbody>
+				</table>
+      		</div>
+      		<div class="modal-footer" style="background-color: #ffc0cb;">
+        		<button type="button" class="btn btn-secondary" data-dismiss="modal">閉じる</button>
+        		<%= f.submit "投稿", class: "btn btn-primary" %>
+        		<% end %>
+      		</div>
+    	</div>
+  	</div>
+</div>

@@ -1,0 +1,51 @@
+<%= render partial: "homes/header" %>
+<div class="container">
+	<div class="row mt-5">
+	</div>
+	<div class="row">
+		<div class="col-md-9">
+			<div class="row mr-3 mt-3" style="border: solid #ffc0cb 2px; border-radius: 10px; background-color: white;">
+				<% if @post.flag == true %>
+				<div class="col-md-5">
+					<%= attachment_image_tag @post, :image, size:'300x300', fallback: "no_user_image.jpg", class:"mt-2 mb-2"%>
+				</div>
+				<% else %>
+				<div class="col-md-5" style="position: relative;">
+					<%= attachment_image_tag @post, :image, size:'300x300', fallback: "no_user_image.jpg", class:"mt-2 mb-2"%>
+					<div style="position: absolute; top: 35%; background-color: pink; height: 50px; width: 300px; opacity: 0.9; text-align: center;">
+						<h2 class="pt-1">非公開記事</h2>
+					</div>
+				</div>
+				<% end %>
+				<div class="col-md-7">
+					<div class="row mt-5"></div>
+					<div class="row">
+						<%= attachment_image_tag @post.user, :image, size:'50x50', fallback: "no_user_image.jpg", style:"border-radius: 50%" %>
+						<%= @post.user.name %>
+					</div>
+					<div class="row">
+						<div class="col pl-0 mt-3">
+							<h4><%= @post.title %></h4>
+						</div>
+						<div class="col-md-5 pl-5 pt-3">
+							<%= @post.created_at.strftime("%Y.%m.%d %H:%M") %>
+						</div>
+					</div>
+					<div class="row pr-3 pb-5 mt-2">
+						<%= render_with_hashtags(@post.body) %>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 mx-auto mt-5">
+					<%= form_for @room do |f| %>
+						<%= f.hidden_field :post_id, :value => @post.id %>
+						<%= f.submit "チャットを始める", class:"btn btn-lg btn-pink" %>
+					<% end %>
+				</div>
+			</div>
+		</div>
+		<%= render partial: "posts/user_info" %>
+	</div>
+</div>
+<%= render partial: "homes/footer" %>
