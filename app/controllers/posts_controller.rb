@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   	@post = Post.new(post_params)
   	@post.user_id = current_user.id
   	@post.save
+    flash[:create_post] = 投稿が完了しました！
   	redirect_to posts_path
   end
 
@@ -14,6 +15,7 @@ class PostsController < ApplicationController
     @new_post = Post.new
   	@post = Post.find(params[:id])
     @room = Room.new
+    @rooms = @post.rooms
   end
 
   def edit

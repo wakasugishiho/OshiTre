@@ -37,12 +37,23 @@
 				</div>
 			</div>
 			<div class="row">
+				<% if @post.user == current_user %>
+					<% if @rooms.present? %>
+						<% @rooms.each do |room| %>
+						<div class="col-md-4 mt-3" style="border: solid #ffc0cb 2px; border-radius: 10px; background-color: white;">
+							<%= link_to attachment_image_tag(room.messages.last.sent_user, :image, size:'50x50', fallback: "no_user_image.jpg", style:"border-radius: 50%"), room_path(room) %>
+							<%= room.messages.last.content %>
+						</div>
+						<% end %>
+					<% end %>
+				<% else %>
 				<div class="col-md-3 mx-auto mt-5">
 					<%= form_for @room do |f| %>
 						<%= f.hidden_field :post_id, :value => @post.id %>
 						<%= f.submit "チャットを始める", class:"btn btn-lg btn-pink" %>
 					<% end %>
 				</div>
+				<% end %>
 			</div>
 		</div>
 		<%= render partial: "posts/user_info" %>
